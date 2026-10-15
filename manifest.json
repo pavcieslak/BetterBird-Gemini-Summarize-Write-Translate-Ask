@@ -1,0 +1,50 @@
+{
+  "manifest_version": 2,
+  "name": "Gemini Mail Assistant",
+  "version": "1.0.0",
+  "description": "On-demand Gemini AI for Betterbird/Thunderbird: summarize or translate emails, draft replies and help write messages.",
+  "author": "Paweł Cieślak, Lucmedia",
+  "homepage_url": "https://lucmedia.pl",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "gemini-assistant@lucmedia.pl",
+      "strict_min_version": "128.0"
+    }
+  },
+  "background": {
+    "scripts": [
+      "lib/settings.js",
+      "lib/gemini.js",
+      "lib/prompts.js",
+      "lib/mail.js",
+      "background.js"
+    ]
+  },
+  "permissions": [
+    "storage",
+    "messagesRead",
+    "compose",
+    "clipboardWrite",
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "message_display_action": {
+    "default_title": "Gemini",
+    "default_icon": "icons/icon.svg",
+    "default_popup": "popup/read.html"
+  },
+  "compose_action": {
+    "default_title": "Gemini",
+    "default_icon": "icons/icon.svg",
+    "default_popup": "popup/compose.html"
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+  "icons": {
+    "16": "icons/icon.svg",
+    "32": "icons/icon.svg",
+    "48": "icons/icon.svg",
+    "96": "icons/icon.svg"
+  }
+}

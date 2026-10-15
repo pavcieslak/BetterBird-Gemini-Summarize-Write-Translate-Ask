@@ -1,0 +1,77 @@
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --fg: #1f2328;
+  --muted: #6b7280;
+  --border: #d0d7de;
+  --field: #ffffff;
+  --accent: #4b5bdc;
+  --accent-fg: #ffffff;
+  --error: #c62828;
+  --ok: #2e7d32;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1e1f24;
+    --fg: #e6e8ee;
+    --muted: #9aa0ad;
+    --border: #3a3d46;
+    --field: #26282f;
+    --accent: #7886ff;
+    --accent-fg: #101223;
+    --error: #ff7b72;
+    --ok: #7ee787;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+main { max-width: 640px; margin: 0 auto; padding: 24px 20px 48px; }
+h1 { margin: 0 0 4px; font-size: 22px; }
+h2 { margin: 28px 0 12px; font-size: 15px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+.lead { margin: 0; color: var(--muted); }
+
+.field { display: flex; flex-direction: column; gap: 4px; margin-bottom: 16px; }
+.field label { font-weight: 600; }
+.inline { display: flex; gap: 8px; }
+.inline input { flex: 1; }
+small { color: var(--muted); }
+a { color: var(--accent); }
+code { background: var(--field); border: 1px solid var(--border); border-radius: 4px; padding: 0 4px; }
+
+input[type="text"], input[type="password"], input[type="number"], select, textarea {
+  width: 100%;
+  padding: 7px 9px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--field);
+  color: var(--fg);
+  font: inherit;
+}
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+input[type="range"] { width: 100%; accent-color: var(--accent); }
+
+button {
+  padding: 7px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--field);
+  color: var(--fg);
+  font: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+button.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); font-weight: 600; }
+
+.actions { display: flex; align-items: center; gap: 12px; margin-top: 24px; }
+#testResult { margin-left: 8px; }
+.ok { color: var(--ok); }
+.error { color: var(--error); }
+.privacy { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12px; }

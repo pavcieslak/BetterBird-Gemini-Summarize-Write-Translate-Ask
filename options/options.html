@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gemini Mail Assistant – Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main>
+    <h1>Gemini Mail Assistant</h1>
+    <p class="lead">Summarize or translate emails, draft replies and get writing help from Gemini, on demand.</p>
+
+    <form id="form">
+      <section>
+        <h2>Gemini API</h2>
+
+        <div class="field">
+          <label for="apiKey">API key</label>
+          <div class="inline">
+            <input id="apiKey" type="password" autocomplete="off" spellcheck="false" placeholder="AIza…">
+            <button type="button" id="toggleKey">Show</button>
+          </div>
+          <small>Create a free key in <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Google AI Studio</a>. It is stored only in this Betterbird profile and sent only to Google's API.</small>
+        </div>
+
+        <div class="field">
+          <label for="model">Model</label>
+          <div class="inline">
+            <input id="model" type="text" list="models" autocomplete="off" spellcheck="false">
+            <datalist id="models"></datalist>
+            <button type="button" id="loadModels">Load models</button>
+          </div>
+          <small>The default <code>gemini-flash-latest</code> always points to Google's current fast model. “Load models” lists what your key can use.</small>
+        </div>
+
+        <div class="field">
+          <button type="button" id="test">Test connection</button>
+          <span id="testResult" role="status"></span>
+        </div>
+      </section>
+
+      <section>
+        <h2>Defaults</h2>
+
+        <div class="field">
+          <label for="translateLanguage">Default translation language</label>
+          <input id="translateLanguage" type="text" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label for="defaultSummary">Default summary length</label>
+          <select id="defaultSummary">
+            <option value="short">Short (1–2 sentences)</option>
+            <option value="bullets">Key points + action items</option>
+            <option value="detailed">Detailed</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="defaultTone">Default tone for writing</label>
+          <select id="defaultTone">
+            <option value="">Default</option>
+            <option value="professional">Professional</option>
+            <option value="friendly">Friendly</option>
+            <option value="formal">Formal</option>
+            <option value="casual">Casual</option>
+            <option value="direct and concise">Direct &amp; concise</option>
+            <option value="warm">Warm</option>
+            <option value="firm but polite">Firm but polite</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="extraInstructions">Standing instructions (optional)</label>
+          <textarea id="extraInstructions" rows="4" placeholder="e.g. I write as Pawel from Lucmedia. Sign off with “Best regards”. Prefer short paragraphs."></textarea>
+          <small>Added to every request. Useful for your name, sign-off style or preferred spelling.</small>
+        </div>
+      </section>
+
+      <section>
+        <h2>Advanced</h2>
+
+        <div class="field">
+          <label for="temperature">Creativity: <output id="temperatureOut"></output></label>
+          <input id="temperature" type="range" min="0" max="1.5" step="0.1">
+          <small>Lower is more literal (good for summaries and translation), higher is more varied.</small>
+        </div>
+
+        <div class="field">
+          <label for="maxChars">Maximum email length sent (characters)</label>
+          <input id="maxChars" type="number" min="2000" max="500000" step="1000">
+          <small>Longer emails are cut off to keep requests fast and cheap.</small>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button type="submit" class="primary">Save</button>
+        <span id="saved" role="status"></span>
+      </div>
+    </form>
+
+    <p class="privacy">Privacy: nothing is sent until you press a button in the Gemini popup. Then the text of the email you are working on (and, for replies, the original message) is sent to Google's Gemini API using your key. Google's terms and data-use policy for the API apply; the free tier may use submitted content to improve Google products, so consider a paid key for confidential mail.</p>
+  </main>
+
+  <script src="../lib/settings.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
