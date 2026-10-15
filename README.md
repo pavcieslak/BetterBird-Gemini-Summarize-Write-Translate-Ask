@@ -16,6 +16,26 @@ Betterbird / Thunderbird extension that calls the Google Gemini API **on demand*
 
 Results appear in an editable box. Copy them, or insert them into the email (Insert / Replace draft). Replace only touches your own text, never the quoted message or signature.
 
+## Screenshots
+
+**The "Gemini" button in the compose toolbar**
+
+![Gemini button in the compose window](screenshots/compose-toolbar-button.png)
+
+**Compose: Write, Improve, Translate, Summarize thread**
+
+| Write | Improve |
+|---|---|
+| ![Write tab](screenshots/compose-write.png) | ![Improve tab](screenshots/compose-improve.png) |
+
+| Translate | Summarize thread |
+|---|---|
+| ![Translate tab](screenshots/compose-translate.png) | ![Summarize thread tab](screenshots/compose-summarize-thread.png) |
+
+**Settings**
+
+![Settings page](screenshots/settings.png)
+
 ## Install
 
 1. Betterbird: Menu > Add-ons and Themes > gear icon > *Install Add-on From File…* > choose `gemini-mail-assistant-1.0.0.xpi`.
